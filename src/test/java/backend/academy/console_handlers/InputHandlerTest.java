@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,6 +17,7 @@ class InputHandlerTest {
     @BeforeAll
     static void setUp() {
         sysInBackup = System.in;
+        printHandler = PrintHandler.getInstance(System.out);
     }
 
     @AfterAll
