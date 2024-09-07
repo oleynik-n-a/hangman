@@ -15,24 +15,26 @@ public final class InputHandler {
         return InputHandler.INSTANCE;
     }
 
-    public int readInteger() {
+    public int readInteger(PrintHandler printHandler) {
         while (true) {
             try {
                 return Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {
-                continue;
+                printHandler.updateView();
             }
         }
     }
 
-    public char readLetter() {
+    public char readLetter(PrintHandler printHandler) {
         String input;
         while (true) {
             input = scanner.nextLine();
             if (input.length() != 1) {
+                printHandler.updateView();
                 continue;
             }
             if (!Character.isLetter(input.charAt(0))) {
+                printHandler.updateView();
                 continue;
             }
             return Character.toUpperCase(input.charAt(0));
