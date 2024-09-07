@@ -15,13 +15,20 @@ public final class InputHandler {
         return InputHandler.INSTANCE;
     }
 
-    public int readInteger(PrintHandler printHandler) {
+    public int readInteger(PrintHandler printHandler, int min, int max) {
+        int result;
         while (true) {
             try {
-                return Integer.parseInt(scanner.nextLine());
+                result = Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {
                 printHandler.updateView();
+                continue;
             }
+            if (result < min || result > max) {
+                printHandler.updateView();
+                continue;
+            }
+            return result;
         }
     }
 

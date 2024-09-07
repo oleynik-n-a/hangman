@@ -29,15 +29,23 @@ class InputHandlerTest {
     void testReadInteger() {
         // TestInteger
         inputHandler = InputHandler.getInstance(new ByteArrayInputStream("50".getBytes()));
-        assertEquals(50, inputHandler.readInteger(printHandler));
+        assertEquals(50, inputHandler.readInteger(printHandler, 1, 100));
 
         // TestSomeString
         inputHandler = InputHandler.getInstance(new ByteArrayInputStream("Test\n50".getBytes()));
-        assertEquals(50, inputHandler.readInteger(printHandler));
+        assertEquals(50, inputHandler.readInteger(printHandler, 1, 100));
 
         // TestEmptyString
         inputHandler = InputHandler.getInstance(new ByteArrayInputStream("\n5".getBytes()));
-        assertEquals(5, inputHandler.readInteger(printHandler));
+        assertEquals(5, inputHandler.readInteger(printHandler, 1, 100));
+
+        // TestUpperBound
+        inputHandler = InputHandler.getInstance(new ByteArrayInputStream("50\n25".getBytes()));
+        assertEquals(25, inputHandler.readInteger(printHandler, 1, 49));
+
+        // TestLowerBound
+        inputHandler = InputHandler.getInstance(new ByteArrayInputStream("5\n25".getBytes()));
+        assertEquals(25, inputHandler.readInteger(printHandler, 10, 50));
     }
 
     @Test
