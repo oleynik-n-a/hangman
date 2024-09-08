@@ -1,4 +1,4 @@
-package backend.academy.console_handlers;
+package backend.academy.stream_handlers;
 
 import java.io.InputStream;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package backend.academy.console_handlers;
+package backend.academy.stream_handlers;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
