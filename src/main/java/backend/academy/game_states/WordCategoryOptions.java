@@ -1,6 +1,6 @@
 package backend.academy.game_states;
 
-public enum WordCategory {
+public enum WordCategoryOptions {
     ANIMALS,
     FRUITS,
     HOUSEHOLD_APPLIANCES,
