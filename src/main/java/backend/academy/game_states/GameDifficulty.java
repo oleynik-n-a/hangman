@@ -3,5 +3,7 @@ package backend.academy.game_states;
 public enum GameDifficulty {
     EASY,
     MEDIUM,
-    HARD
+    HARD,
+    CUSTOM,
+    RANDOM
 }

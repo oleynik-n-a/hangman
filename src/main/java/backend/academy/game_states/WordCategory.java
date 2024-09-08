@@ -4,5 +4,6 @@ public enum WordCategory {
     ANIMALS,
     FRUITS,
     HOUSEHOLD_APPLIANCES,
-    SPORTS
+    SPORTS,
+    RANDOM
 }
