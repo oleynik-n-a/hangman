@@ -1,5 +1,6 @@
 package backend.academy.stream_handlers;
 
+import backend.academy.adapters.IPrintable;
 import java.io.PrintStream;
 
 public final class PrintHandler {

@@ -1,4 +1,4 @@
-package backend.academy.stream_handlers;
+package backend.academy.adapters;
 
 public interface IPrintable {
     String getPrintableView();
