@@ -16,7 +16,7 @@ public final class PrintHandler {
     }
 
     public void updateView() {
-        out.println(lastPrinted);
+        out.print(lastPrinted);
     }
 
     public <T extends IPrintable> void printView(T printable) {
