@@ -1,7 +1,7 @@
 package backend.academy.stages.game;
 
-import backend.academy.game_states.GameDifficultyOptions;
 import backend.academy.adapters.IPrintable;
+import backend.academy.game_states.GameDifficultyOptions;
 
 public class GameSession implements IPrintable {
     private final String word;
