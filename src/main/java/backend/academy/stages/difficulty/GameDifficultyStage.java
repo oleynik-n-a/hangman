@@ -2,22 +2,22 @@ package backend.academy.stages.difficulty;
 
 import backend.academy.adapters.IPrintable;
 import backend.academy.adapters.IRandom;
-import backend.academy.game_states.GameDifficultyOptions;
+import backend.academy.game_states.GameDifficultyOption;
 import lombok.Getter;
 
 @Getter
 public class GameDifficultyStage implements IPrintable, IRandom {
-    private GameDifficultyOptions gameDifficulty;
+    private GameDifficultyOption gameDifficulty;
     public static final int MAX_DIFFICULTY = 20;
 
     @SuppressWarnings("magicnumber")
     public void submitDifficulty(int input) {
         gameDifficulty = switch (input) {
-            case 1 -> GameDifficultyOptions.EASY;
-            case 2 -> GameDifficultyOptions.MEDIUM;
-            case 3 -> GameDifficultyOptions.HARD;
-            case 4 -> GameDifficultyOptions.CUSTOM;
-            default -> GameDifficultyOptions.RANDOM;
+            case 1 -> GameDifficultyOption.EASY;
+            case 2 -> GameDifficultyOption.MEDIUM;
+            case 3 -> GameDifficultyOption.HARD;
+            case 4 -> GameDifficultyOption.CUSTOM;
+            default -> GameDifficultyOption.RANDOM;
         };
     }
 
@@ -36,10 +36,10 @@ public class GameDifficultyStage implements IPrintable, IRandom {
     @SuppressWarnings("multiplestringliterals")
     public String getPrintableView() {
         return "\nChoose game difficulty:\n"
-            + "  1. " + GameDifficultyOptions.EASY.name() + " (7 lives).\n"
-            + "  2. " + GameDifficultyOptions.MEDIUM.name() + " (5 lives).\n"
-            + "  3. " + GameDifficultyOptions.HARD.name() + " (3 lives).\n"
-            + "  4. " + GameDifficultyOptions.CUSTOM.name() + " (choose from 1 to " + MAX_DIFFICULTY + " lives).\n"
+            + "  1. " + GameDifficultyOption.EASY.name() + " (7 lives).\n"
+            + "  2. " + GameDifficultyOption.MEDIUM.name() + " (5 lives).\n"
+            + "  3. " + GameDifficultyOption.HARD.name() + " (3 lives).\n"
+            + "  4. " + GameDifficultyOption.CUSTOM.name() + " (choose from 1 to " + MAX_DIFFICULTY + " lives).\n"
             + "  5. Skip (generates random lives amount from 1 to " + MAX_DIFFICULTY + ").\n\n"
             + "Input here:\n"
             + "  ->";

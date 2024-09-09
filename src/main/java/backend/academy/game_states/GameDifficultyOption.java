@@ -1,6 +1,6 @@
 package backend.academy.game_states;
 
-public enum GameDifficultyOptions {
+public enum GameDifficultyOption {
     EASY,
     MEDIUM,
     HARD,
