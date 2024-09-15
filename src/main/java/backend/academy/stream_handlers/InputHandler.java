@@ -36,11 +36,7 @@ public final class InputHandler {
         String input;
         while (true) {
             input = scanner.nextLine();
-            if (input.length() != 1) {
-                printHandler.updateView();
-                continue;
-            }
-            if (!Character.isLetter(input.charAt(0))) {
+            if (input.length() != 1 || !Character.isLetter(input.charAt(0))) {
                 printHandler.updateView();
                 continue;
             }
