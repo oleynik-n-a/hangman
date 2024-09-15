@@ -2,8 +2,9 @@ package backend.academy.stages.category;
 
 import backend.academy.adapters.IPrintable;
 import backend.academy.adapters.IRandom;
+import backend.academy.data.WordInfo;
 import backend.academy.game_states.WordCategoryOption;
-import org.apache.commons.lang3.NotImplementedException;
+import java.util.Map;
 
 public class WordCategoryStage implements IPrintable, IRandom {
     private WordCategoryOption wordCategory;
@@ -30,8 +31,8 @@ public class WordCategoryStage implements IPrintable, IRandom {
         }
     }
 
-    public String generateWord() {
-        throw new NotImplementedException();
+    public WordInfo generateWord(Map<WordCategoryOption, WordInfo[]> dictionary) {
+        return dictionary.get(wordCategory)[IRandom.generateRandomInteger(0, dictionary.get(wordCategory).length - 1)];
     }
 
     @Override
