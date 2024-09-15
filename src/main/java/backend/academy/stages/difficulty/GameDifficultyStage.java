@@ -1,12 +1,12 @@
 package backend.academy.stages.difficulty;
 
-import backend.academy.adapters.IPrintable;
-import backend.academy.adapters.IRandom;
+import backend.academy.adapters.Printable;
+import backend.academy.adapters.Random;
 import backend.academy.game_states.GameDifficultyOption;
 import lombok.Getter;
 
 @Getter
-public class GameDifficultyStage implements IPrintable, IRandom {
+public class GameDifficultyStage implements Printable, Random {
     private GameDifficultyOption gameDifficulty;
     public static final int MAX_DIFFICULTY = 20;
 
@@ -27,7 +27,7 @@ public class GameDifficultyStage implements IPrintable, IRandom {
             case EASY -> 7;
             case MEDIUM -> 5;
             case HARD -> 3;
-            case RANDOM -> IRandom.generateRandomInteger(1, MAX_DIFFICULTY);
+            case RANDOM -> Random.generateRandomInteger(1, MAX_DIFFICULTY);
             default -> 0;
         };
     }

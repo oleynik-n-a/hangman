@@ -6,7 +6,7 @@ import backend.academy.stages.game.GameSession;
 import lombok.Setter;
 
 @Setter
-public class GameSessionBuilder implements IBuilder<GameSession> {
+public class GameSessionBuilder implements Builder<GameSession> {
     private WordInfo wordInfo;
     private GameDifficultyOption difficulty;
     private int lives;

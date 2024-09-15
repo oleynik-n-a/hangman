@@ -1,12 +1,12 @@
 package backend.academy.stages.category;
 
-import backend.academy.adapters.IPrintable;
-import backend.academy.adapters.IRandom;
+import backend.academy.adapters.Printable;
+import backend.academy.adapters.Random;
 import backend.academy.data.WordInfo;
 import backend.academy.game_states.WordCategoryOption;
 import java.util.Map;
 
-public class WordCategoryStage implements IPrintable, IRandom {
+public class WordCategoryStage implements Printable, Random {
     private WordCategoryOption wordCategory;
 
     @SuppressWarnings("magicnumber")
@@ -26,13 +26,13 @@ public class WordCategoryStage implements IPrintable, IRandom {
                 break;
             default:
                 wordCategory = WordCategoryOption.RANDOM;
-                submitCategory(IRandom.generateRandomInteger(1, WordCategoryOption.values().length - 1));
+                submitCategory(Random.generateRandomInteger(1, WordCategoryOption.values().length - 1));
                 break;
         }
     }
 
     public WordInfo generateWord(Map<WordCategoryOption, WordInfo[]> dictionary) {
-        return dictionary.get(wordCategory)[IRandom.generateRandomInteger(0, dictionary.get(wordCategory).length - 1)];
+        return dictionary.get(wordCategory)[Random.generateRandomInteger(0, dictionary.get(wordCategory).length - 1)];
     }
 
     @Override

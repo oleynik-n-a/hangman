@@ -1,9 +1,9 @@
 package backend.academy.stages.game;
 
-import backend.academy.adapters.IPrintable;
+import backend.academy.adapters.Printable;
 import backend.academy.game_states.GameResultOption;
 
-public class GameSessionResults implements IPrintable {
+public class GameSessionResults implements Printable {
     private final GameResultOption gameResult;
 
     public GameSessionResults(GameResultOption gameResult) {

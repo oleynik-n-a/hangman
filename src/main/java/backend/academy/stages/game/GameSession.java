@@ -1,6 +1,6 @@
 package backend.academy.stages.game;
 
-import backend.academy.adapters.IPrintable;
+import backend.academy.adapters.Printable;
 import backend.academy.data.WordInfo;
 import backend.academy.game_states.GameDifficultyOption;
 import backend.academy.game_states.GameResultOption;
@@ -8,7 +8,7 @@ import backend.academy.game_states.GameStepOption;
 import java.util.HashSet;
 import java.util.Set;
 
-public class GameSession implements IPrintable {
+public class GameSession implements Printable {
     private final WordInfo wordInfo;
     private final GameDifficultyOption difficulty;
     private final int lives;

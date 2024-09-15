@@ -1,6 +1,6 @@
 package backend.academy.stream_handlers;
 
-import backend.academy.adapters.IPrintable;
+import backend.academy.adapters.Printable;
 import java.io.PrintStream;
 
 public final class PrintHandler {
@@ -20,7 +20,7 @@ public final class PrintHandler {
         out.print(lastPrinted);
     }
 
-    public <T extends IPrintable> void printView(T printable) {
+    public <T extends Printable> void printView(T printable) {
         lastPrinted = printable.getPrintableView();
         updateView();
     }

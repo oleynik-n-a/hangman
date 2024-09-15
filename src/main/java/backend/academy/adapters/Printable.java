@@ -1,5 +1,5 @@
 package backend.academy.adapters;
 
-public interface IPrintable {
+public interface Printable {
     String getPrintableView();
 }
