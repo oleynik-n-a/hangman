@@ -78,7 +78,7 @@ public class Main {
     }
 
     // Initialization of game words.
-    private static final Map<WordCategoryOption, WordInfo[]> DICTIONARY = Map.of(
+    public static final Map<WordCategoryOption, WordInfo[]> DICTIONARY = Map.of(
         WordCategoryOption.ANIMALS, new WordInfo[] {
             new WordInfo("WOLF", WordCategoryOption.ANIMALS, "Gray predator"),
             new WordInfo("BEAR", WordCategoryOption.ANIMALS, "Big predator loves fish"),
