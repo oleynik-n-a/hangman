@@ -4,12 +4,6 @@ import java.io.InputStream;
 import java.util.Scanner;
 
 public final class InputHandler {
-    private static final InputHandler INSTANCE = new InputHandler();
-    private static Scanner scanner;
-
-    private InputHandler() {
-    }
-
     public static InputHandler getInstance(InputStream inputStream) {
         scanner = new Scanner(inputStream);
         return InputHandler.INSTANCE;
@@ -42,5 +36,11 @@ public final class InputHandler {
             }
             return Character.toUpperCase(input.charAt(0));
         }
+    }
+
+    private static final InputHandler INSTANCE = new InputHandler();
+    private static Scanner scanner;
+
+    private InputHandler() {
     }
 }

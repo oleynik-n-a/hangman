@@ -3,8 +3,6 @@ package backend.academy.stages.game;
 import backend.academy.stages.GameStage;
 
 public class GameSessionResults implements GameStage {
-    private final GameResultOption gameResult;
-
     public GameSessionResults(GameResultOption gameResult) {
         this.gameResult = gameResult;
     }
@@ -15,4 +13,6 @@ public class GameSessionResults implements GameStage {
             + "Start new game? ('y' for restart, else for quit)\n"
             + " ->";
     }
+
+    private final GameResultOption gameResult;
 }

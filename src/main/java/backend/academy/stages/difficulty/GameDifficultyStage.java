@@ -1,25 +1,12 @@
 package backend.academy.stages.difficulty;
 
 import backend.academy.stages.GameStage;
-import lombok.Getter;
 import java.security.SecureRandom;
 import java.util.Map;
+import lombok.Getter;
 
 @Getter
 public class GameDifficultyStage implements GameStage {
-    protected GameDifficultyOption gameDifficulty;
-    private static final Map<Integer, GameDifficultyOption> GAME_DIFFICULTY_OPTION_MAP = Map.of(
-        1, GameDifficultyOption.EASY,
-        2, GameDifficultyOption.MEDIUM,
-        3, GameDifficultyOption.HARD,
-        4, GameDifficultyOption.CUSTOM,
-        5, GameDifficultyOption.RANDOM
-    );
-    private static final Map<GameDifficultyOption, Integer> LIVES_AMOUNT_MAP = Map.of(
-        GameDifficultyOption.EASY, 7,
-        GameDifficultyOption.MEDIUM, 5,
-        GameDifficultyOption.HARD, 3
-    );
     public static final int MAX_LIVE_AMOUNT = 20;
 
     public void submitDifficulty(int input) {
@@ -46,4 +33,18 @@ public class GameDifficultyStage implements GameStage {
             + "Input here:\n"
             + "  ->";
     }
+
+    protected GameDifficultyOption gameDifficulty;
+    private static final Map<Integer, GameDifficultyOption> GAME_DIFFICULTY_OPTION_MAP = Map.of(
+        1, GameDifficultyOption.EASY,
+        2, GameDifficultyOption.MEDIUM,
+        3, GameDifficultyOption.HARD,
+        4, GameDifficultyOption.CUSTOM,
+        5, GameDifficultyOption.RANDOM
+    );
+    private static final Map<GameDifficultyOption, Integer> LIVES_AMOUNT_MAP = Map.of(
+        GameDifficultyOption.EASY, 7,
+        GameDifficultyOption.MEDIUM, 5,
+        GameDifficultyOption.HARD, 3
+    );
 }

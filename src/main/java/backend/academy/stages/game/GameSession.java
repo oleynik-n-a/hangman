@@ -1,20 +1,13 @@
 package backend.academy.stages.game;
 
-import backend.academy.stages.GameStage;
 import backend.academy.data.WordInfo;
+import backend.academy.stages.GameStage;
 import backend.academy.stages.difficulty.GameDifficultyOption;
-import lombok.Builder;
 import java.util.HashSet;
 import java.util.Set;
+import lombok.Builder;
 
 public class GameSession implements GameStage {
-    private final WordInfo wordInfo;
-    private final GameDifficultyOption difficulty;
-    private final int lives;
-    private final Set<Character> correctAnswer = new HashSet<>();
-    private int mistakes = 0;
-    private final Set<Character> answer = new HashSet<>();
-
     @Builder
     public GameSession(WordInfo wordInfo, GameDifficultyOption difficulty, int lives) {
         this.wordInfo = wordInfo;
@@ -45,6 +38,7 @@ public class GameSession implements GameStage {
     }
 
     @Override
+    @SuppressWarnings("multiplestringliterals")
     public String getPrintableView() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("\nHangman\n")
@@ -72,4 +66,11 @@ public class GameSession implements GameStage {
 
         return stringBuilder.toString();
     }
+
+    private final WordInfo wordInfo;
+    private final GameDifficultyOption difficulty;
+    private final int lives;
+    private final Set<Character> correctAnswer = new HashSet<>();
+    private int mistakes = 0;
+    private final Set<Character> answer = new HashSet<>();
 }

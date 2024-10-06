@@ -1,13 +1,13 @@
 package backend.academy;
 
-import backend.academy.stages.difficulty.GameDifficultyOption;
-import backend.academy.stages.game.GameStepOption;
 import backend.academy.stages.category.WordCategoryOption;
 import backend.academy.stages.category.WordCategoryStage;
 import backend.academy.stages.difficulty.CustomDifficultyStage;
+import backend.academy.stages.difficulty.GameDifficultyOption;
 import backend.academy.stages.difficulty.GameDifficultyStage;
 import backend.academy.stages.game.GameSession;
 import backend.academy.stages.game.GameSessionResults;
+import backend.academy.stages.game.GameStepOption;
 import backend.academy.stream_handlers.InputHandler;
 import backend.academy.stream_handlers.PrintHandler;
 import lombok.experimental.UtilityClass;

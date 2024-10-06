@@ -1,11 +1,37 @@
 package backend.academy.stages.category;
 
-import backend.academy.stages.GameStage;
 import backend.academy.data.WordInfo;
+import backend.academy.stages.GameStage;
 import java.security.SecureRandom;
 import java.util.Map;
 
 public class WordCategoryStage implements GameStage {
+    public void submitCategory(int input) {
+        wordCategory = WORD_CATEGORY_OPTION_MAP.get(input);
+        if (wordCategory == WordCategoryOption.RANDOM) {
+            SecureRandom random = new SecureRandom();
+            submitCategory(random.nextInt(1, WordCategoryOption.values().length - 1));
+        }
+    }
+
+    public WordInfo generateWord(Map<WordCategoryOption, WordInfo[]> dictionary) {
+        SecureRandom random = new SecureRandom();
+        return dictionary.get(wordCategory)[random.nextInt(0, dictionary.get(wordCategory).length)];
+    }
+
+    @Override
+    @SuppressWarnings("multiplestringliterals")
+    public String getPrintableView() {
+        return "Choose word category:\n"
+            + "  1. " + WordCategoryOption.ANIMALS.name() + ".\n"
+            + "  2. " + WordCategoryOption.FRUITS.name() + ".\n"
+            + "  3. " + WordCategoryOption.HOUSEHOLD_APPLIANCES.name() + ".\n"
+            + "  4. " + WordCategoryOption.SPORTS.name() + ".\n"
+            + "  5. Skip (random category)\n\n"
+            + "Input here:\n"
+            + "  ->";
+    }
+
     private WordCategoryOption wordCategory;
     private static final Map<Integer, WordCategoryOption> WORD_CATEGORY_OPTION_MAP = Map.of(
         1, WordCategoryOption.ANIMALS,
@@ -37,29 +63,4 @@ public class WordCategoryStage implements GameStage {
             new WordInfo("CHESS", WordCategoryOption.SPORTS, "Mind sport"),
         }
     );
-
-    public void submitCategory(int input) {
-        wordCategory = WORD_CATEGORY_OPTION_MAP.get(input);
-        if (wordCategory == WordCategoryOption.RANDOM) {
-            SecureRandom random = new SecureRandom();
-            submitCategory(random.nextInt(1, WordCategoryOption.values().length - 1));
-        }
-    }
-
-    public WordInfo generateWord(Map<WordCategoryOption, WordInfo[]> dictionary) {
-        SecureRandom random = new SecureRandom();
-        return dictionary.get(wordCategory)[random.nextInt(0, dictionary.get(wordCategory).length)];
-    }
-
-    @Override
-    public String getPrintableView() {
-        return "Choose word category:\n"
-            + "  1. " + WordCategoryOption.ANIMALS.name() + ".\n"
-            + "  2. " + WordCategoryOption.FRUITS.name() + ".\n"
-            + "  3. " + WordCategoryOption.HOUSEHOLD_APPLIANCES.name() + ".\n"
-            + "  4. " + WordCategoryOption.SPORTS.name() + ".\n"
-            + "  5. Skip (random category)\n\n"
-            + "Input here:\n"
-            + "  ->";
-    }
 }

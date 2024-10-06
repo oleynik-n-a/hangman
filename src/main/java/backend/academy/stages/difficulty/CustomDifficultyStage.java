@@ -4,8 +4,6 @@ import lombok.Getter;
 
 @Getter
 public class CustomDifficultyStage extends GameDifficultyStage {
-    private int livesAmount;
-
     @Override
     public void submitDifficulty(int input) {
         livesAmount = input;
@@ -23,4 +21,6 @@ public class CustomDifficultyStage extends GameDifficultyStage {
             + "Input lives amount:\n"
             + "  ->";
     }
+
+    private int livesAmount;
 }
