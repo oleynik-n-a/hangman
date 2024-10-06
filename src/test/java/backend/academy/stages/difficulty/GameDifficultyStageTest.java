@@ -1,6 +1,5 @@
 package backend.academy.stages.difficulty;
 
-import backend.academy.game_states.GameDifficultyOption;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -55,6 +54,6 @@ public class GameDifficultyStageTest {
 
         // Test random difficulty lives borders
         gameDifficultyStage.submitDifficulty(5);
-        assert(gameDifficultyStage.getLivesAmount() >= 1 && gameDifficultyStage.getLivesAmount() <= GameDifficultyStage.MAX_DIFFICULTY);
+        assert(gameDifficultyStage.getLivesAmount() >= 1 && gameDifficultyStage.getLivesAmount() <= GameDifficultyStage.MAX_LIVE_AMOUNT);
     }
 }

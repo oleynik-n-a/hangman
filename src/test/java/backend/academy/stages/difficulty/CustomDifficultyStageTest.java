@@ -1,6 +1,5 @@
 package backend.academy.stages.difficulty;
 
-import backend.academy.game_states.GameDifficultyOption;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

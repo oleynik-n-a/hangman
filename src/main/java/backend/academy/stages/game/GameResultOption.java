@@ -1,4 +1,4 @@
-package backend.academy.game_states;
+package backend.academy.stages.game;
 
 public enum GameResultOption {
     WIN,

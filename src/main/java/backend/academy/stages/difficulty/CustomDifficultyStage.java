@@ -1,11 +1,9 @@
 package backend.academy.stages.difficulty;
 
-import backend.academy.game_states.GameDifficultyOption;
 import lombok.Getter;
 
 @Getter
 public class CustomDifficultyStage extends GameDifficultyStage {
-    private final GameDifficultyOption gameDifficulty = GameDifficultyOption.CUSTOM;
     private int livesAmount;
 
     @Override

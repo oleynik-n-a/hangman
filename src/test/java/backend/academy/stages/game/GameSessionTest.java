@@ -1,10 +1,8 @@
 package backend.academy.stages.game;
 
 import backend.academy.data.WordInfo;
-import backend.academy.game_states.GameDifficultyOption;
-import backend.academy.game_states.GameResultOption;
-import backend.academy.game_states.GameStepOption;
-import backend.academy.game_states.WordCategoryOption;
+import backend.academy.stages.difficulty.GameDifficultyOption;
+import backend.academy.stages.category.WordCategoryOption;
 import org.junit.jupiter.api.Test;
 
 public class GameSessionTest {

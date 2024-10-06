@@ -1,21 +1,21 @@
 package backend.academy.builders;
 
 import backend.academy.data.WordInfo;
-import backend.academy.game_states.GameDifficultyOption;
-import backend.academy.game_states.WordCategoryOption;
+import backend.academy.stages.difficulty.GameDifficultyOption;
+import backend.academy.stages.category.WordCategoryOption;
 import backend.academy.stages.game.GameSession;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class GameSessionBuilderTest {
-    private static GameSessionBuilder gameSessionBuilder;
+    private static GameSession.GameSessionBuilder gameSessionBuilder;
     private static int testLives;
     private static GameDifficultyOption testDifficulty;
     private static WordInfo testWordInfo;
 
     @BeforeAll
     static void setUp() {
-        gameSessionBuilder = new GameSessionBuilder();
+        gameSessionBuilder = GameSession.builder();
         testLives = 1;
         testDifficulty = GameDifficultyOption.EASY;
         testWordInfo = new WordInfo("TestAnimal", WordCategoryOption.ANIMALS, "HintForTestAnimal");

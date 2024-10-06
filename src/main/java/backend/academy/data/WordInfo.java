@@ -1,6 +1,6 @@
 package backend.academy.data;
 
-import backend.academy.game_states.WordCategoryOption;
+import backend.academy.stages.category.WordCategoryOption;
 
 public record WordInfo(String word, WordCategoryOption wordCategory, String hint) {
 }

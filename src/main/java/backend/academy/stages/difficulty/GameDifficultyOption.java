@@ -1,4 +1,4 @@
-package backend.academy.game_states;
+package backend.academy.stages.difficulty;
 
 public enum GameDifficultyOption {
     EASY,

@@ -1,7 +1,5 @@
 package backend.academy.stages.category;
 
-import backend.academy.Main;
-import backend.academy.game_states.WordCategoryOption;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -17,22 +15,22 @@ public class WordCategoryStageTest {
     void testSubmitCategory() {
         // Test input 1
         wordCategoryStage.submitCategory(1);
-        assert(wordCategoryStage.generateWord(Main.DICTIONARY).wordCategory() == WordCategoryOption.ANIMALS);
+        assert(wordCategoryStage.generateWord(WordCategoryStage.DICTIONARY).wordCategory() == WordCategoryOption.ANIMALS);
 
         // Test input 2
         wordCategoryStage.submitCategory(2);
-        assert(wordCategoryStage.generateWord(Main.DICTIONARY).wordCategory() == WordCategoryOption.FRUITS);
+        assert(wordCategoryStage.generateWord(WordCategoryStage.DICTIONARY).wordCategory() == WordCategoryOption.FRUITS);
 
         // Test input 3
         wordCategoryStage.submitCategory(3);
-        assert(wordCategoryStage.generateWord(Main.DICTIONARY).wordCategory() == WordCategoryOption.HOUSEHOLD_APPLIANCES);
+        assert(wordCategoryStage.generateWord(WordCategoryStage.DICTIONARY).wordCategory() == WordCategoryOption.HOUSEHOLD_APPLIANCES);
 
         // Test input 4
         wordCategoryStage.submitCategory(4);
-        assert(wordCategoryStage.generateWord(Main.DICTIONARY).wordCategory() == WordCategoryOption.SPORTS);
+        assert(wordCategoryStage.generateWord(WordCategoryStage.DICTIONARY).wordCategory() == WordCategoryOption.SPORTS);
 
         // Test input 5
         wordCategoryStage.submitCategory(5);
-        assert(wordCategoryStage.generateWord(Main.DICTIONARY).wordCategory() != WordCategoryOption.RANDOM);
+        assert(wordCategoryStage.generateWord(WordCategoryStage.DICTIONARY).wordCategory() != WordCategoryOption.RANDOM);
     }
 }

@@ -1,10 +1,8 @@
 package backend.academy;
 
-import backend.academy.builders.GameSessionBuilder;
-import backend.academy.data.WordInfo;
-import backend.academy.game_states.GameDifficultyOption;
-import backend.academy.game_states.GameStepOption;
-import backend.academy.game_states.WordCategoryOption;
+import backend.academy.stages.difficulty.GameDifficultyOption;
+import backend.academy.stages.game.GameStepOption;
+import backend.academy.stages.category.WordCategoryOption;
 import backend.academy.stages.category.WordCategoryStage;
 import backend.academy.stages.difficulty.CustomDifficultyStage;
 import backend.academy.stages.difficulty.GameDifficultyStage;
@@ -12,7 +10,6 @@ import backend.academy.stages.game.GameSession;
 import backend.academy.stages.game.GameSessionResults;
 import backend.academy.stream_handlers.InputHandler;
 import backend.academy.stream_handlers.PrintHandler;
-import java.util.Map;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
@@ -23,7 +20,7 @@ public class Main {
         InputHandler inputHandler = InputHandler.getInstance(System.in);
 
         // Initializing Builder class for future game session (builder pattern).
-        final GameSessionBuilder gameSessionBuilder = new GameSessionBuilder();
+        final var gameSessionBuilder = GameSession.builder();
 
         int input;
 
@@ -36,7 +33,7 @@ public class Main {
             wordCategoryStage.submitCategory(input);
 
             // Building game session after choosing stage.
-            gameSessionBuilder.wordInfo(wordCategoryStage.generateWord(DICTIONARY));
+            gameSessionBuilder.wordInfo(wordCategoryStage.generateWord(WordCategoryStage.DICTIONARY));
 
             // Stage to choose game difficulty (lives amount).
             GameDifficultyStage gameDifficultyStage = new GameDifficultyStage();
@@ -51,7 +48,7 @@ public class Main {
             if (gameDifficultyStage.gameDifficulty() == GameDifficultyOption.CUSTOM) {
                 gameDifficultyStage = new CustomDifficultyStage();
                 printHandler.printView(gameDifficultyStage);
-                input = inputHandler.readInteger(printHandler, 1, GameDifficultyStage.MAX_DIFFICULTY);
+                input = inputHandler.readInteger(printHandler, 1, GameDifficultyStage.MAX_LIVE_AMOUNT);
                 gameDifficultyStage.submitDifficulty(input);
             }
 
@@ -76,29 +73,4 @@ public class Main {
             }
         }
     }
-
-    // Initialization of game words.
-    public static final Map<WordCategoryOption, WordInfo[]> DICTIONARY = Map.of(
-        WordCategoryOption.ANIMALS, new WordInfo[] {
-            new WordInfo("WOLF", WordCategoryOption.ANIMALS, "Gray predator"),
-            new WordInfo("BEAR", WordCategoryOption.ANIMALS, "Big predator loves fish"),
-            new WordInfo("CHICKEN", WordCategoryOption.ANIMALS, "Small animal that produces eggs"),
-            new WordInfo("FOX", WordCategoryOption.ANIMALS, "Canny animal steels chickens"),
-        },
-        WordCategoryOption.FRUITS, new WordInfo[] {
-            new WordInfo("APPLE", WordCategoryOption.FRUITS, "Snow white's killer"),
-            new WordInfo("MANGO", WordCategoryOption.FRUITS, "Indian's king of the fruits"),
-            new WordInfo("PLUM", WordCategoryOption.FRUITS, "Purple like Thanos"),
-        },
-        WordCategoryOption.HOUSEHOLD_APPLIANCES, new WordInfo[] {
-            new WordInfo("FRIDGE", WordCategoryOption.HOUSEHOLD_APPLIANCES, "Cold guy"),
-            new WordInfo("IRON", WordCategoryOption.HOUSEHOLD_APPLIANCES, "The one you forgot"),
-            new WordInfo("DISHWASHER", WordCategoryOption.HOUSEHOLD_APPLIANCES, "Helps you to clean up"),
-        },
-        WordCategoryOption.SPORTS, new WordInfo[] {
-            new WordInfo("SWIMMING", WordCategoryOption.SPORTS, "Wet session"),
-            new WordInfo("FOOTBALL", WordCategoryOption.SPORTS, "You will need just ball and yor legs"),
-            new WordInfo("CHESS", WordCategoryOption.SPORTS, "Mind sport"),
-        }
-    );
 }

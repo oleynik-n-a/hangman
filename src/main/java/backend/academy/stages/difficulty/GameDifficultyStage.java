@@ -1,35 +1,37 @@
 package backend.academy.stages.difficulty;
 
-import backend.academy.adapters.Printable;
-import backend.academy.adapters.Random;
-import backend.academy.game_states.GameDifficultyOption;
+import backend.academy.stages.GameStage;
 import lombok.Getter;
+import java.security.SecureRandom;
+import java.util.Map;
 
 @Getter
-public class GameDifficultyStage implements Printable, Random {
-    private GameDifficultyOption gameDifficulty;
-    public static final int MAX_DIFFICULTY = 20;
+public class GameDifficultyStage implements GameStage {
+    protected GameDifficultyOption gameDifficulty;
+    private static final Map<Integer, GameDifficultyOption> GAME_DIFFICULTY_OPTION_MAP = Map.of(
+        1, GameDifficultyOption.EASY,
+        2, GameDifficultyOption.MEDIUM,
+        3, GameDifficultyOption.HARD,
+        4, GameDifficultyOption.CUSTOM,
+        5, GameDifficultyOption.RANDOM
+    );
+    private static final Map<GameDifficultyOption, Integer> LIVES_AMOUNT_MAP = Map.of(
+        GameDifficultyOption.EASY, 7,
+        GameDifficultyOption.MEDIUM, 5,
+        GameDifficultyOption.HARD, 3
+    );
+    public static final int MAX_LIVE_AMOUNT = 20;
 
-    @SuppressWarnings("magicnumber")
     public void submitDifficulty(int input) {
-        gameDifficulty = switch (input) {
-            case 1 -> GameDifficultyOption.EASY;
-            case 2 -> GameDifficultyOption.MEDIUM;
-            case 3 -> GameDifficultyOption.HARD;
-            case 4 -> GameDifficultyOption.CUSTOM;
-            default -> GameDifficultyOption.RANDOM;
-        };
+        gameDifficulty = GAME_DIFFICULTY_OPTION_MAP.get(input);
     }
 
-    @SuppressWarnings("magicnumber")
     public int getLivesAmount() {
-        return switch (gameDifficulty) {
-            case EASY -> 7;
-            case MEDIUM -> 5;
-            case HARD -> 3;
-            case RANDOM -> Random.generateRandomInteger(1, MAX_DIFFICULTY);
-            default -> 0;
-        };
+        if (gameDifficulty == GameDifficultyOption.RANDOM) {
+            SecureRandom random = new SecureRandom();
+            return random.nextInt(1, MAX_LIVE_AMOUNT);
+        }
+        return LIVES_AMOUNT_MAP.get(gameDifficulty);
     }
 
     @Override
@@ -39,8 +41,8 @@ public class GameDifficultyStage implements Printable, Random {
             + "  1. " + GameDifficultyOption.EASY.name() + " (7 lives).\n"
             + "  2. " + GameDifficultyOption.MEDIUM.name() + " (5 lives).\n"
             + "  3. " + GameDifficultyOption.HARD.name() + " (3 lives).\n"
-            + "  4. " + GameDifficultyOption.CUSTOM.name() + " (choose from 1 to " + MAX_DIFFICULTY + " lives).\n"
-            + "  5. Skip (generates random lives amount from 1 to " + MAX_DIFFICULTY + ").\n\n"
+            + "  4. " + GameDifficultyOption.CUSTOM.name() + " (choose from 1 to " + MAX_LIVE_AMOUNT + " lives).\n"
+            + "  5. Skip (generates random lives amount from 1 to " + MAX_LIVE_AMOUNT + ").\n\n"
             + "Input here:\n"
             + "  ->";
     }
