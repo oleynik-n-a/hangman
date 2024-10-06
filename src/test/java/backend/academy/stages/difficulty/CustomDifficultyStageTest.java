@@ -15,6 +15,7 @@ public class CustomDifficultyStageTest {
     void testSubmitDifficulty() {
         // Test input 1
         customDifficultyStage.submitDifficulty(1);
+        System.out.println(customDifficultyStage.gameDifficulty());
         assert(customDifficultyStage.gameDifficulty() == GameDifficultyOption.CUSTOM);
         assert(customDifficultyStage.getLivesAmount() == 1);
 

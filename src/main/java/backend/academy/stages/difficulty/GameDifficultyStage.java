@@ -14,6 +14,9 @@ public class GameDifficultyStage implements GameStage {
     }
 
     public int getLivesAmount() {
+        if (gameDifficulty == GameDifficultyOption.CUSTOM) {
+            return 0;
+        }
         if (gameDifficulty == GameDifficultyOption.RANDOM) {
             SecureRandom random = new SecureRandom();
             return random.nextInt(1, MAX_LIVE_AMOUNT);

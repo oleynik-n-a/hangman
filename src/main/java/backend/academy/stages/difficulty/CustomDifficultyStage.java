@@ -4,6 +4,10 @@ import lombok.Getter;
 
 @Getter
 public class CustomDifficultyStage extends GameDifficultyStage {
+    public CustomDifficultyStage() {
+        gameDifficulty = GameDifficultyOption.CUSTOM;
+    }
+
     @Override
     public void submitDifficulty(int input) {
         livesAmount = input;
