@@ -17,13 +17,13 @@ public class Main {
         // Game cycle to make possible restart the game.
         while (true) {
             // Stage to choose word category.
-            stagesRunner.RunCategoryStages();
+            stagesRunner.runCategoryStages();
 
             // Stage to choose game difficulty (lives amount).
-            stagesRunner.RunDifficultyStages();
+            stagesRunner.runDifficultyStages();
 
             // Game session building done, starting game.
-            stagesRunner.RunGameStages();
+            stagesRunner.runGameStages();
 
             // End of the game.
             if (inputHandler.readLetter(printHandler) != 'Y') {

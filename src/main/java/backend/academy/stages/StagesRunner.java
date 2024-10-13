@@ -17,7 +17,7 @@ public class StagesRunner {
         this.inputHandler = inputHandler;
     }
 
-    public void RunCategoryStages() {
+    public void runCategoryStages() {
         WordCategoryStage wordCategoryStage = new WordCategoryStage();
         printHandler.printView(wordCategoryStage);
         int input = inputHandler.readInteger(printHandler, 1, WordCategoryOption.values().length);
@@ -27,7 +27,7 @@ public class StagesRunner {
         gameSessionBuilder.wordInfo(wordCategoryStage.generateWord(WordCategoryStage.DICTIONARY));
     }
 
-    public void RunDifficultyStages() {
+    public void runDifficultyStages() {
         GameDifficultyStage gameDifficultyStage = new GameDifficultyStage();
         printHandler.printView(gameDifficultyStage);
         int input = inputHandler.readInteger(printHandler, 1, GameDifficultyOption.values().length);
@@ -47,7 +47,7 @@ public class StagesRunner {
         gameSessionBuilder.lives(gameDifficultyStage.getLivesAmount());
     }
 
-    public void RunGameStages() {
+    public void runGameStages() {
         GameSession gameSession = gameSessionBuilder.build();
         printHandler.printView(gameSession);
         GameStepOption gameStep = GameStepOption.GAMING_STEP;
